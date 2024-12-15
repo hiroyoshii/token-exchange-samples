@@ -49,9 +49,6 @@ jobs:
         uses: 'google-github-actions/auth@v2'
         with:
           workload_identity_provider: '${{ secrets.GC_WORKLOAD_IDENTITY_PROVIDER }}'
-      - name: 'gcloud'
-        run: |-
-          gcloud services list --project ${{ env.AWS_REGION }}
       - name: 'gcloud storage list'
         run: |-
-          gcloud storage ls --project ${{ env.AWS_REGION }}
+          gcloud storage ls --project ${{ env.PROJECT_ID }}
