@@ -2,7 +2,7 @@ name: Run AWS Login with OIDC
 on: [push]
 
 env:
-  AWS_REGION : "aap-northeast-1"
+  AWS_REGION : "ap-northeast-1"
 
 permissions:
   id-token: write   # This is required for requesting the JWT
