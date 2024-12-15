@@ -32,6 +32,9 @@ name: 'Run Google Cloud Login with OIDC'
 on:
   push:
 
+env:
+  PROJECT_ID : "hiroyoshii-sandbox"
+
 jobs:
   deploy:
     runs-on: 'ubuntu-latest'
@@ -48,7 +51,7 @@ jobs:
           workload_identity_provider: '${{ secrets.GC_WORKLOAD_IDENTITY_PROVIDER }}'
       - name: 'gcloud'
         run: |-
-          gcloud services list
+          gcloud services list --project ${{ env.AWS_REGION }}
       - name: 'gcloud storage list'
         run: |-
-          gcloud storage ls
+          gcloud storage ls --project ${{ env.AWS_REGION }}
