@@ -46,9 +46,11 @@ jobs:
         uses: 'google-github-actions/auth@v2'
         with:
           workload_identity_provider: '${{ secrets.GC_WORKLOAD_IDENTITY_PROVIDER }}'
-
       - id: 'gcloud'
         name: 'gcloud'
         run: |-
-          gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
           gcloud services list
+      - id: 'gcloud'
+        name: 'gcloud'
+        run: |-
+          gcloud storage ls
