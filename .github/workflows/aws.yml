@@ -18,3 +18,5 @@ jobs:
           aws-region: ${{ env.AWS_REGION }}
       - name: awscli permissions check
         run: aws sts get-caller-identity
+      - name: awscli check buckets 
+        run: aws s3 list-buckets
